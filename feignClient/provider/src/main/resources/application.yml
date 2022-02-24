@@ -1,0 +1,25 @@
+server:
+  port: 9011
+eureka:
+  client:
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/rest?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: ahmet
+    hikari:
+      connection-timeout: 3000000
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  cloud:
+    discovery:
+      enabled: true
